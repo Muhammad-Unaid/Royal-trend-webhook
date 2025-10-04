@@ -14,23 +14,39 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path
-from bot.views import dialogflow_webhook
+# from django.contrib import admin
+# from django.urls import path
+# from bot.views import dialogflow_webhook
+
+# # urlpatterns = [
+# #     path("admin/", admin.site.urls),
+# #     path("webhook/", dialogflow_webhook, name="dialogflow_webhook"),
+# # ]
+
+# from django.http import HttpResponse
+
+# def home(request):
+#     return HttpResponse("✅ Server Running! Chatbot is Ready.")
 
 # urlpatterns = [
-#     path("admin/", admin.site.urls),
-#     path("webhook/", dialogflow_webhook, name="dialogflow_webhook"),
+#     path('', home),  # root URL
+#     # path('webhook/', view.dialogflow_webhook, name="dialogflow_webhook"),
+#     path("webhook/", views.dialogflow_webhook, name="dialogflow_webhook")
 # ]
 
+from django.contrib import admin
+from django.urls import path
 from django.http import HttpResponse
+from bot.views import dialogflow_webhook
 
 def home(request):
     return HttpResponse("✅ Server Running! Chatbot is Ready.")
 
 urlpatterns = [
-    path('', home),  # root URL
-    path('webhook/', dialogflow_webhook),
+    path('', home, name='home'),  # Root URL test
+    path('admin/', admin.site.urls),
+    path("webhook/", dialogflow_webhook, name="dialogflow_webhook"),  # ✅ fixed
 ]
+
 
 
