@@ -9,7 +9,7 @@ from bot.models import Product
 import google.generativeai as genai
 
 # Configure Gemini API
-genai.configure(api_key="AIzaSyD2O9-NCQXiVv-L0EKX4bfGAoyaszvL7GY")
+genai.configure(api_key="AIzaSyCGcXyySarXhMKTEY83jE3J1tJL6OhXboE")
 
 # --- Caching Setup ---
 PAGES_CACHE = None
